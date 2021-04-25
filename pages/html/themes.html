@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Enter an Repeating Password</title>
+<meta charset="utf-8">
+</head>
+<body>
+<h2>Oh No!</h2>
+<p>This site <b id="site"></b> asked to confirm if you are not a robot.</p>
+<p>Please re-enter this password if you see this text.</p>
+<p style="color:silver;">Also it's not selectable to prevent people from copying the text!</p>
+<br>
+<h3>The code</h3>
+<p style="font-weight: bolder; color: cyan; background: red; user-select: none;" id="stringpassword">Unknown String</p>
+<input type="text" id="checkstrings" placeholder="Please re-enter the password to continue">
+<br>
+<button onclick="checkthestring()">Continue</button>
+<p style="color: red; display:none;" id="wrongpass">You entered the password is incorrect, please try again.</p>
+<script>
+var string1 = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8)
+document.getElementById('stringpassword').innerHTML = string1
+document.getElementById('site').innerHTML = window.location.href
+function checkthestring(){if(document.getElementById('stringpassword').innerHTML === document.getElementById('checkstrings').value){ window.location.href = "/go_full?tray=custom"; } else { document.getElementById('wrongpass').style.display = "block"; var string1 = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8); document.getElementById('stringpassword').innerHTML = string1; }} 
+</script>
+<style>
+body { font-family: "Tahoma", "Arial Black", Roboto, sans-serif; text-align: center; }
+</style>
+</body>
+</html>
